@@ -28,7 +28,7 @@ type Person struct {
 
 func main() {
 	person := Person{Username: "golang", Age: 10, Company: "Github"}
-	PersonMap := gonvert.Struct2Map(&person) // 该方法可传入结构体或结构体指针
+	PersonMap := gonvert.Struct2Map(&person) // 可传入结构体或结构体指针
 	fmt.Println(PersonMap)
 }
 
