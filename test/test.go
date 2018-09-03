@@ -23,10 +23,14 @@ var data = map[string]interface{}{
 }
 
 func main() {
-	person := &Person{}
-	gonvert.Map2Struct(data, person)
+	person := Person{}
+	err := gonvert.Map2Struct(data, &person)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 	fmt.Println(person)
 
-	a, _ := gonvert.Struct2Map(*person)
+	a, _ := gonvert.Struct2Map(&person)
 	fmt.Println(a)
 }

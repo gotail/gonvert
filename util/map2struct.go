@@ -1,14 +1,22 @@
 package util
 
 import (
+	"errors"
 	"fmt"
 	"reflect"
 )
 
 // Map2Struct 将Map转换为Struct
 func Map2Struct(mapData map[string]interface{}, structInterface interface{}, tagName string) error {
-	getType := reflect.TypeOf(structInterface).Elem()
-	getValue := reflect.ValueOf(structInterface).Elem()
+	getType := reflect.TypeOf(structInterface)
+	getValue := reflect.ValueOf(structInterface)
+
+	if getType.Kind() == reflect.Ptr { // 判断其是否是指针
+		getType = getType.Elem()
+		getValue = getValue.Elem()
+	} else {
+		return errors.New("请传入指针")
+	}
 
 	for i := 0; i < getValue.NumField(); i++ {
 		field := getType.Field(i)
