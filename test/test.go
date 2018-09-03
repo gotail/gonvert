@@ -12,14 +12,18 @@ type Person struct {
 	Company  string `gonvert:"company"`
 	Jh       bool   `gonvert:"jh"`
 	X        int64  `gonvert:"x"`
+	Y        byte   `gonvert:"y"`
+	Z        []int  `gonvert:"z"`
 }
 
 var data = map[string]interface{}{
-	"username": "golang",
-	"age":      30,
-	"company":  "Github",
-	// "jh":true,
-	"x": 32,
+	// "username": "golang",
+	// "age":      30,
+	// "company":  "Github",
+	// // "jh":true,
+	// "x": 32,
+	// "y": 'a',
+	"z": []int{1, 2, 3},
 }
 
 func main() {

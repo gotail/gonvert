@@ -32,13 +32,19 @@ func Map2Struct(mapData map[string]interface{}, structInterface interface{}, tag
 		// 若map中的类型与结构体类型不一致，则需要执行类型转换
 		if reflect.TypeOf(mapValue) != value.Type() {
 			var err error
-			mapValue, err = convertor(fmt.Sprintf("%v", mapValue), value.Type().Name())
+
+			var structType = value.Type().Name()
+			if structType == "" {
+				structType = value.Type().String()
+			}
+
+			mapValue, err = convertor(fmt.Sprintf("%v", mapValue), structType)
 			if err != nil {
 				return err
 			}
 		}
 		value.Set(mapValue)
 	}
-	
+
 	return nil
 }
