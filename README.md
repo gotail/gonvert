@@ -1,4 +1,7 @@
-刚学Go，练练手.
+刚学Go，练练手。
+
+Go语言Telegram群组欢迎大家加入：
+https://t.me/joinchat/HVxWPhDHqfmSsA_8dU4goA
 
 # gonvert
 
