@@ -6,7 +6,7 @@ import (
 )
 
 // Map2Struct 将Map转换为Struct
-func Map2Struct(mapData map[string]interface{}, structInterface interface{}, tagName string) err {
+func Map2Struct(mapData map[string]interface{}, structInterface interface{}, tagName string) error {
 	getType := reflect.TypeOf(structInterface).Elem()
 	getValue := reflect.ValueOf(structInterface).Elem()
 

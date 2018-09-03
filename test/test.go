@@ -27,6 +27,6 @@ func main() {
 	gonvert.Map2Struct(data, person)
 	fmt.Println(person)
 
-	a, _ := gonvert.Struct2Map(person)
+	a, _ := gonvert.Struct2Map(*person)
 	fmt.Println(a)
 }

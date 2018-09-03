@@ -4,8 +4,13 @@ import "reflect"
 
 // Struct2Map 将Struct转换为Map
 func Struct2Map(structInterface interface{}, tagName string) map[string]interface{} {
-	getType := reflect.TypeOf(structInterface).Elem()
-	getValue := reflect.ValueOf(structInterface).Elem()
+	getType := reflect.TypeOf(structInterface)
+	getValue := reflect.ValueOf(structInterface)
+	
+	if getType.Kind() == reflect.Ptr { // 判断其是否是指针
+		getType = getType.Elem()
+		getValue = getValue.Elem()
+	}
 
 	mapData := make(map[string]interface{})
 
