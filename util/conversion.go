@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strconv"
-	"strings"
 	"time"
 )
 
@@ -13,16 +12,6 @@ import (
 func convertor(value string, structType string) (reflect.Value, error) {
 	fmt.Println(value, structType)
 	switch structType {
-	case "[]int": //TODO 难道只能这么实现？？？需要思考更好的办法
-		value = strings.Trim(value, "[]")
-		valueSlice := strings.Split(value, " ")
-
-		var returnSlice []int
-		for _, k := range valueSlice {
-			i, _ := strconv.Atoi(k)
-			returnSlice = append(returnSlice, i)
-		}
-		return reflect.ValueOf(returnSlice), nil
 	case "int":
 		i, err := strconv.Atoi(value)
 		return reflect.ValueOf(i), err
