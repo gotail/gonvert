@@ -13,6 +13,5 @@ func Struct2Map(obj interface{}) (map[string]interface{}, error) {
 
 // Map2Struct 将Map转换为Struct
 func Map2Struct(data map[string]interface{}, obj interface{}) error {
-	util.Map2Struct(data, obj, tagName)
-	return nil
+	return util.Map2Struct(data, obj, tagName)
 }
