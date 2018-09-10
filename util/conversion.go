@@ -10,7 +10,6 @@ import (
 
 // type conversion
 func convertor(value string, structType string) (reflect.Value, error) {
-	fmt.Println(value, structType)
 	switch structType {
 	case "int":
 		i, err := strconv.Atoi(value)
