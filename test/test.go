@@ -20,7 +20,7 @@ var data = map[string]interface{}{
 	"username": "golang",
 	// "age":      30,
 	// "company":  "Github",
-	// // "jh":true,
+	"jh":true,
 	"x": 0,
 	// "y": 'a',
 	//"z": []int{1, 2, 3},

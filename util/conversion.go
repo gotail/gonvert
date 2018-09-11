@@ -39,6 +39,9 @@ func convertor(value string, structType string) (reflect.Value, error) {
 	case "float64":
 		i, err := strconv.ParseFloat(value, 64)
 		return reflect.ValueOf(i), err
+	case "bool":
+		i, err := strconv.ParseBool(value)
+		return reflect.ValueOf(i), err
 	}
 
 	return reflect.ValueOf(value), errors.New("unknow：" + structType)
