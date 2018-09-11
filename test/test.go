@@ -17,13 +17,13 @@ type Person struct {
 }
 
 var data = map[string]interface{}{
-	// "username": "golang",
+	"username": "golang",
 	// "age":      30,
 	// "company":  "Github",
 	// // "jh":true,
-	// "x": 32,
+	"x": 0,
 	// "y": 'a',
-	"z": []int{1, 2, 3},
+	//"z": []int{1, 2, 3},
 }
 
 func main() {
@@ -34,7 +34,7 @@ func main() {
 		return
 	}
 	fmt.Println(person)
-
-	a, _ := gonvert.Struct2Map(&person)
-	fmt.Println(a)
+	//
+	//a, _ := gonvert.Struct2Map(&person)
+	//fmt.Println(a)
 }

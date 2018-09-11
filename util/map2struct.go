@@ -22,9 +22,13 @@ func Map2Struct(mapData map[string]interface{}, structInterface interface{}, tag
 		field := getType.Field(i)
 		value := getValue.Field(i)
 
+		if value.IsValid() == false {
+			continue
+		}
+
 		mapKey := field.Tag.Get(tagName)
 		v, ok := mapData[mapKey]
-		if ok == false {
+		if ok == false || v == nil {
 			continue
 		}
 
@@ -35,7 +39,9 @@ func Map2Struct(mapData map[string]interface{}, structInterface interface{}, tag
 			var err error
 			mapValue, err = convertor(fmt.Sprintf("%v", mapValue), structType)
 			if err != nil {
+				//fmt.Printf("发生了错误：%v\n", err)
 				return err
+				continue
 			}
 		}
 		value.Set(mapValue)
